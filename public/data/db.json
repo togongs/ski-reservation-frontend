@@ -2,35 +2,35 @@
   "product_list": [
     {
       "id": 1,
-      "resort_name": "asdqwe12",
+      "resort_name": "리조트1",
       "title_content_image": "asd",
       "description": "asd",
       "resort_operation_time": "2022-10-20 00:00:00",
-      "product_name": "gfgfg1"
+      "product_name": "상품1"
     },
     {
       "id": 2,
-      "resort_name": "asdqwe12",
+      "resort_name": "리조트2",
       "title_content_image": "asd",
       "description": "asd",
       "resort_operation_time": "2022-10-20 00:00:00",
-      "product_name": "gfgfg1"
+      "product_name": "상품2"
     },
     {
       "id": 3,
-      "resort_name": "asdqwe12",
+      "resort_name": "리조트3",
       "title_content_image": "asd",
       "description": "asd",
       "resort_operation_time": "2022-10-20 00:00:00",
-      "product_name": "gfgfg1"
+      "product_name": "상품3"
     },
     {
       "id": 4,
-      "resort_name": "asdqwe12",
+      "resort_name": "리조트4",
       "title_content_image": "asd",
       "description": "asd",
       "resort_operation_time": "2022-10-20 00:00:00",
-      "product_name": "gfgfg1"
+      "product_name": "상품4"
     }
   ],
   "payment": [

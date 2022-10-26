@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import React, { useCallback, useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
@@ -51,13 +52,15 @@ const ProductAll = () => {
       <>
         {console.log('productList', productList)}
         {productList?.map((product: IGetProductData, index: any) => (
-          <div key={product.id}>
-            <div>상품명: {product.product_name}</div>
-            <div>리조트명: {product.resort_name}</div>
-            <div>설명: {product.description}</div>
-            <div>운영시간: {product.resort_operation_time}</div>
-            <hr></hr>
-          </div>
+          <Link href={`/reservation/info?pid=${product.id}`} key={index}>
+            <a>
+              <div>상품명: {product.product_name}</div>
+              <div>리조트명: {product.resort_name}</div>
+              <div>설명: {product.description}</div>
+              <div>운영시간: {product.resort_operation_time}</div>
+              <hr></hr>
+            </a>
+          </Link>
         ))}
       </>
     </section>

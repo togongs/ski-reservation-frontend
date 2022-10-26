@@ -19,14 +19,6 @@ const initialState: IAuth = {
   error: null,
 };
 
-// export interface authData {
-//   login_id: string | null;
-//   password: string | null;
-//   // name: string | null;
-//   // phone: string | null;
-//   authenticate: boolean;
-// }
-
 export const login = createAsyncThunk(
   'auth/login',
   async (data: IAuth, thunkAPI) => {
@@ -79,7 +71,6 @@ const authSlice = createSlice({
         state.login_id = action.payload.login_id;
         state.password = action.payload.password;
         state.authenticate = action.payload.authenticate;
-        // state.authenticate = action.payload.authenticate;
       }),
       builder.addCase(login.rejected, (state, action: AnyAction) => {
         console.log('rejected 상태', action); // Promise가 rejected일 때 dispatch
@@ -94,11 +85,10 @@ const authSlice = createSlice({
         state.login_id = action.payload.login_id;
         state.password = action.payload.password;
         state.authenticate = action.payload.authenticate;
-        // state.authenticate = action.payload.authenticate;
       }),
       builder.addCase(logout.rejected, (state, action: AnyAction) => {
         console.log('rejected 상태', action); // Promise가 rejected일 때 dispatch
-        // state.error = action.payload; // catch 된 error 객체를 state.error에 넣습니다.
+        state.error = action.payload; // catch 된 error 객체를 state.error에 넣습니다.
       });
   },
 });

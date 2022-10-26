@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import React, { useCallback, useEffect, useState } from 'react';
 import Header from '../components/Header';
 import { IGetProductData } from '../components/ProductAll';
@@ -24,12 +25,16 @@ const Reservation = () => {
       <Header />
       <section>
         {productList.map((product: IGetProductData, index: any) => (
-          <div key={product.id}>
-            <div>resort: {product.resort_name}</div>
-            <div>prodcut: {product.product_name}</div>
-            <div>description: {product.description}</div>
-            <hr></hr>
-          </div>
+          <Link href={`/reservation/info?pid=${product.id}`} key={index}>
+            <a>
+              <div key={product.id}>
+                <div>resort: {product.resort_name}</div>
+                <div>prodcut: {product.product_name}</div>
+                <div>description: {product.description}</div>
+                <hr></hr>
+              </div>
+            </a>
+          </Link>
         ))}
       </section>
     </>

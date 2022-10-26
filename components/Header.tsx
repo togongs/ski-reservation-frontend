@@ -44,7 +44,6 @@ const Header = () => {
     }
   }, [authenticate, dispatch]);
 
-  console.log('authenticate', authenticate);
   return (
     <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
       <Container fluid>

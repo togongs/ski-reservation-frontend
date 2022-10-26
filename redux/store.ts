@@ -5,6 +5,8 @@ import productReducer from './reducers/productReducer';
 
 export const createStore = () => {
   const store = configureStore({
+    // redux devtolls object name
+    // auth: {}, product: {}
     reducer: { auth: authReducer, product: productReducer },
     middleware: (getDefaultMiddleware) =>
       getDefaultMiddleware({

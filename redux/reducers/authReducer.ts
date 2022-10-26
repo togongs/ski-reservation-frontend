@@ -32,7 +32,7 @@ export const login = createAsyncThunk(
   async (data: IAuth, thunkAPI) => {
     // const { login_id, password, authenticate } = data;
     try {
-      console.log('data', data);
+      console.log('auth data', data);
       return thunkAPI.fulfillWithValue(data);
     } catch (error) {
       return thunkAPI.rejectWithValue(error);

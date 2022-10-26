@@ -5,10 +5,12 @@ import { getAllProducts, IProducts } from '../redux/reducers/productReducer';
 import { AppDispatch } from '../redux/store';
 
 interface IProductData {
-  productList: IGetProductData[];
-  isLoading: boolean;
-  selectedItem: string | null;
-  error: object | null;
+  product: {
+    productList: IGetProductData[];
+    isLoading: boolean;
+    selectedItem: string | null;
+    error: object | null;
+  };
 }
 export interface IGetProductData {
   id: string;
@@ -21,7 +23,7 @@ export interface IGetProductData {
 const ProductAll = () => {
   const dispath = useDispatch<AppDispatch>();
   const { productList, isLoading }: IProducts = useSelector(
-    (state: IProductData) => state,
+    (state: IProductData) => state.product,
   );
   //   const [productList, setProductList] = useState<any[]>();
 
@@ -43,7 +45,7 @@ const ProductAll = () => {
   if (isLoading) {
     return <h1>로딩중...</h1>;
   }
-  // console.log('productList', productList);
+  console.log('productList', productList);
   return (
     <section>
       <>

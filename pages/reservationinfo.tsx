@@ -1,7 +1,13 @@
 import React from 'react';
+import Header from '../components/Header';
 
 const reservationinfo = () => {
-  return <div>reservationinfo</div>;
+  return (
+    <>
+      <Header />
+      <section>reservationinfo</section>
+    </>
+  );
 };
 
 export default reservationinfo;

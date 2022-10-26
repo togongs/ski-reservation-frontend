@@ -1,20 +1,25 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { IAuth } from '../redux/reducers/authReducer';
 import { AppDispatch } from '../redux/store';
 
-interface IUser {
-  id: number;
-  name?: string;
-  login_id: string;
-  email: string;
-  phone?: string;
+interface IGetAuthData {
+  auth: {
+    login_id: string | null;
+    name: string | null;
+    phone: string | null;
+    error: object | null;
+  };
 }
 
 const Mypage = () => {
-  const [userInfo, setUserInfo] = useState<any[]>();
+  const [userInfo, setUserInfo] = useState([]);
   console.log('userInfo', userInfo);
   // const dispath = useDispatch<AppDispatch>();
-  // const { login_id, name, phone } = useSelector((state: IUser) => state);
+  const { login_id, name, phone }: IAuth = useSelector(
+    (state: IGetAuthData) => state.auth,
+  );
+  console.log('login_id', login_id);
 
   const getUserInfo = useCallback(async () => {
     // 백엔드 api로 유저정보 가져오면 됨
@@ -33,15 +38,13 @@ const Mypage = () => {
 
   return (
     <section>
+      <h1>지금 유저정보는 더미데이터.. 나중에 db에서 가져와야함</h1>
       <div>
-        {userInfo?.map((user: IUser) => (
-          <>
-            <div>아이디: {user.login_id}</div>
-            <div>이름: {user.name}</div>
-            <div>메일: {user.email}</div>
-            <div>휴대폰: {user.phone}</div>
-          </>
-        ))}
+        <>
+          <div>아이디: {login_id}</div>
+          <div>이름: {name}</div>
+          <div>휴대폰: {phone}</div>
+        </>
       </div>
     </section>
   );

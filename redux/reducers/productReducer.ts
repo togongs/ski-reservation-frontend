@@ -1,30 +1,31 @@
 import { AnyAction, createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+import { IGetProductData } from '../../components/ProductAll';
 
-interface IProduct {
-  productList: string[];
+export interface IProducts {
+  productList: IGetProductData[];
   selectedItem: string | null;
   isLoading: boolean;
   error: object | null;
 }
-const initialState: IProduct = {
+const initialState: IProducts = {
   productList: [],
   selectedItem: null,
   isLoading: false,
   error: null,
 };
 
-export interface productData {
-  productList: string[];
-  selectedItem: string | null;
-  isLoading: boolean;
-  error: object | null;
-}
+// export interface productData {
+//   productList: string[];
+//   selectedItem: string | null;
+//   isLoading: boolean;
+//   error: object | null;
+// }
 
 export const getAllProducts = createAsyncThunk(
   'product/getAllProducts',
   // 썽크는 하나의 매개변수만 입력 가능
   // 그러므로 dispatch를 할때 객체로 전달해야함
-  async (data: productData, thunkAPI) => {
+  async (data: IProducts, thunkAPI) => {
     // const { searchQuery, page, cnt } = data;
     try {
       console.log('product data', data);

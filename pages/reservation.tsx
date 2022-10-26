@@ -1,7 +1,39 @@
-import React from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
+import Header from '../components/Header';
+import { IGetProductData } from '../components/ProductAll';
 
-const reservation = () => {
-  return <div>reservation</div>;
+const Reservation = () => {
+  const [productList, setProductList] = useState([]);
+
+  const getProducts = useCallback(async () => {
+    const url = '/data/db.json';
+    const response = await fetch(url);
+    const data = await response.json();
+    console.log(data);
+    const productList = data.product_list;
+    setProductList(productList);
+    // dispath(getAllProducts(productList));
+  }, []);
+
+  useEffect(() => {
+    getProducts();
+  }, [getProducts]);
+
+  return (
+    <>
+      <Header />
+      <section>
+        {productList.map((product: IGetProductData, index: any) => (
+          <div key={product.id}>
+            <div>resort: {product.resort_name}</div>
+            <div>prodcut: {product.product_name}</div>
+            <div>description: {product.description}</div>
+            <hr></hr>
+          </div>
+        ))}
+      </section>
+    </>
+  );
 };
 
-export default reservation;
+export default Reservation;

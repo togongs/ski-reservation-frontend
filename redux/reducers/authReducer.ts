@@ -1,35 +1,36 @@
 import { AnyAction, createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
 // initialState 의 기본 타입을 인터페이스로 지정
-interface IAuth {
+export interface IAuth {
   login_id: string | null;
-  password: string | null;
-  // name: string | null;
-  // phone: string | null;
-  authenticate: boolean;
+  password?: string | null;
+  name?: string | null;
+  phone?: string | null;
+  authenticate?: boolean;
   error: object | null;
 }
 
 const initialState: IAuth = {
   login_id: null,
   password: null,
-  // name: null,
-  // phone: null,
+  name: null,
+  phone: null,
   authenticate: false,
   error: null,
 };
 
-export interface authData {
-  login_id: string | null;
-  password: string | null;
-  // name: string | null;
-  // phone: string | null;
-  authenticate: boolean;
-}
+// export interface authData {
+//   login_id: string | null;
+//   password: string | null;
+//   // name: string | null;
+//   // phone: string | null;
+//   authenticate: boolean;
+// }
+
 export const login = createAsyncThunk(
   'auth/login',
-  async (data: authData, thunkAPI) => {
-    const { login_id, password, authenticate } = data;
+  async (data: IAuth, thunkAPI) => {
+    // const { login_id, password, authenticate } = data;
     try {
       console.log('data', data);
       return thunkAPI.fulfillWithValue(data);
@@ -41,7 +42,7 @@ export const login = createAsyncThunk(
 
 // export const register = createAsyncThunk(
 //   'auth/login',
-//   async (data: authData, thunkAPI) => {
+//   async (data: IAuth, thunkAPI) => {
 //     const { login_id, password,name,email,phone } = data;
 //     try {
 //       console.log('data', data);
@@ -54,8 +55,8 @@ export const login = createAsyncThunk(
 
 export const logout = createAsyncThunk(
   'auth/logout',
-  async (data: authData, thunkAPI) => {
-    const { login_id, password, authenticate } = data;
+  async (data: IAuth, thunkAPI) => {
+    // const { login_id, password, authenticate } = data;
     try {
       console.log('data', data);
       return thunkAPI.fulfillWithValue(data);

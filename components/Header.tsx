@@ -2,27 +2,30 @@ import { useRouter } from 'next/router';
 import React, { useEffect } from 'react';
 import { Container, Nav, Navbar } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
-import { login, authData, logout } from '../redux/reducers/authReducer';
+import { login, logout, IAuth } from '../redux/reducers/authReducer';
 import { AppDispatch } from '../redux/store';
 
-type IState = {
+interface IGetAuthData {
   auth: {
+    login_id: string | null;
+    password: string | null;
     authenticate: boolean;
-    login_id: string;
-    password: string;
+    error: object | null;
   };
-};
+}
 const Header = () => {
   const dispatch = useDispatch<AppDispatch>();
   const router = useRouter();
-  const { authenticate, login_id }: authData = useSelector(
-    (state: IState) => state.auth,
+  const { authenticate, login_id }: IAuth = useSelector(
+    (state: IGetAuthData) => state.auth,
   );
 
   const logOut = () => {
     console.log('user click logout');
     localStorage.clear();
-    dispatch(logout({ login_id: '', password: '', authenticate: false }));
+    dispatch(
+      logout({ login_id: '', password: '', authenticate: false, error: null }),
+    );
     router.push('/');
   };
 
@@ -35,10 +38,13 @@ const Header = () => {
     // console.log('token', token);
     if (token) {
       // login_id 보여주려면
-      dispatch(login({ login_id: id, authenticate: true, password: '' }));
+      dispatch(
+        login({ login_id: id, authenticate: true, password: '', error: null }),
+      );
     }
   }, [authenticate, dispatch]);
 
+  console.log('authenticate', authenticate);
   return (
     <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
       <Container fluid>

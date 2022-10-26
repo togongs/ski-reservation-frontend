@@ -46,7 +46,12 @@ const Login = () => {
     localStorage.setItem('id', inputId);
     // 백엔드 api로 유저 정보 저장
     dispatch(
-      login({ login_id: inputId, password: inputPw, authenticate: true }),
+      login({
+        login_id: inputId,
+        password: inputPw,
+        authenticate: true,
+        error: null,
+      }),
     );
     router.push('/');
   };

@@ -1,18 +1,16 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
-import { getAllProducts, productData } from '../redux/reducers/productReducer';
+import { getAllProducts, IProducts } from '../redux/reducers/productReducer';
 import { AppDispatch } from '../redux/store';
 
-interface Iitem {
-  product: {
-    productList: string[];
-    isLoading: boolean;
-    selectedItem: string | null;
-    error: object | null;
-  };
+interface IProductData {
+  productList: IGetProductData[];
+  isLoading: boolean;
+  selectedItem: string | null;
+  error: object | null;
 }
-interface IProductItem {
+export interface IGetProductData {
   id: string;
   product_name: string | null;
   resort_name: string | null;
@@ -22,8 +20,8 @@ interface IProductItem {
 
 const ProductAll = () => {
   const dispath = useDispatch<AppDispatch>();
-  const { productList, isLoading }: productData = useSelector(
-    (state: Iitem) => state.product,
+  const { productList, isLoading }: IProducts = useSelector(
+    (state: IProductData) => state,
   );
   //   const [productList, setProductList] = useState<any[]>();
 
@@ -50,7 +48,7 @@ const ProductAll = () => {
     <section>
       <>
         {console.log('productList', productList)}
-        {/* {productList?.map((product: IProductItem, index: any) => (
+        {productList?.map((product: IGetProductData, index: any) => (
           <div key={product.id}>
             <div>상품명: {product.product_name}</div>
             <div>리조트명: {product.resort_name}</div>
@@ -58,7 +56,7 @@ const ProductAll = () => {
             <div>운영시간: {product.resort_operation_time}</div>
             <hr></hr>
           </div>
-        ))} */}
+        ))}
       </>
     </section>
   );

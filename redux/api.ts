@@ -2,7 +2,7 @@ import axios from 'axios';
 
 // url 호출 시 기본 값 셋팅
 const api = axios.create({
-  baseURL: '',
+  baseURL: 'https://some-domain.com/api/',
   headers: { 'Content-type': 'application/json' }, // data type
 });
 

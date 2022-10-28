@@ -4,6 +4,7 @@ body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+    /* height: 100%; */
 }
 
 a {
@@ -16,11 +17,7 @@ a:hover {
 footer {
   width: 100%;
   height: auto;
-  /* border-top: 1px solid #d5d6de; */
-  /* background-color: #fff; */
   padding: 40px 0;
-  position : absolute;
-bottom : 0;
 }
 
 * {

@@ -8,6 +8,11 @@ import { Container } from 'react-bootstrap';
 import ProductAll from '../components/Product/ProductAll';
 import Modal from '../components/Modal';
 import { useState } from 'react';
+import styled from 'styled-components';
+
+const MainBox = styled.div`
+  padding-top: 40px;
+`;
 
 const Home: NextPage = () => {
   const [openModal, setOpenModal] = useState(true);
@@ -15,13 +20,14 @@ const Home: NextPage = () => {
     <>
       <Header />
       <Container>
-        <h1>메인</h1>
-        <ProductAll />
+        <MainBox>
+          <ProductAll />
+        </MainBox>
         <div>
           {openModal && <Modal closeModal={() => setOpenModal(false)} />}
         </div>
-        {/* <Footer /> */}
       </Container>
+      <Footer />
     </>
   );
 };

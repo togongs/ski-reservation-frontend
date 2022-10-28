@@ -8,10 +8,10 @@ const Lessoninfo = () => {
   const pid = router.query.pid;
   console.log('pid', pid);
   return (
-    <Container>
+    <>
       <Header />
-      강습예약 상세페이지 상품{pid}
-    </Container>
+      <Container>강습예약 상세페이지 상품{pid}</Container>
+    </>
   );
 };
 

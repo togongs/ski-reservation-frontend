@@ -2,10 +2,10 @@ import Link from 'next/link';
 import React, { useCallback, useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
-import { getAllProducts, IProducts } from '../redux/reducers/productReducer';
-import { AppDispatch } from '../redux/store';
+import { getAllProducts, IProducts } from '../../redux/reducers/productReducer';
+import { AppDispatch } from '../../redux/store';
 
-interface IProductData {
+export interface IProductData {
   product: {
     productList: IGetProductData[];
     isLoading: boolean;
@@ -26,7 +26,6 @@ const ProductAll = () => {
   const { productList, isLoading }: IProducts = useSelector(
     (state: IProductData) => state.product,
   );
-  //   const [productList, setProductList] = useState<any[]>();
 
   const getProducts = useCallback(async () => {
     const url = '/data/db.json';
@@ -46,12 +45,13 @@ const ProductAll = () => {
   if (isLoading) {
     return <h1>로딩중...</h1>;
   }
-  console.log('productList', productList);
+  {
+    console.log('productList', productList);
+  }
   return (
     <section>
       <>
-        {console.log('productList', productList)}
-        {productList?.map((product: IGetProductData, index: any) => (
+        {productList?.map((product: IGetProductData, index: number) => (
           <Link href={`/reservation/info?pid=${product.id}`} key={index}>
             <a>
               <div>상품명: {product.product_name}</div>

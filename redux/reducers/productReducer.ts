@@ -1,5 +1,5 @@
 import { AnyAction, createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import { IGetProductData } from '../../components/ProductAll';
+import { IGetProductData } from '../../components/Product/ProductAll';
 
 export interface IProducts {
   productList: IGetProductData[];

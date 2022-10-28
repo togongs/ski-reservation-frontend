@@ -9,6 +9,15 @@ import Header from '../components/Header';
 import axios from 'axios';
 import { AppDispatch } from '../redux/store';
 
+const SectionBox = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`;
+const InnerBox = styled.div`
+  width: 500px;
+`;
 const LinkTag = styled.div`
   display: flex;
   justify-content: space-evenly;
@@ -35,9 +44,9 @@ const Login = () => {
   const [inputId, setInputId] = useState<string>(''); // 커스텀 에러메세지
   const [inputPw, setInputPw] = useState<string>(''); // 커스텀 에러메세지
   const [errorMsg, setErrorMsg] = useState('');
+  const [token, setToken] = useState('');
   const dispatch = useDispatch<AppDispatch>();
   const router = useRouter();
-  const [token, setToken] = useState('');
 
   const loginUser = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -111,41 +120,45 @@ const Login = () => {
   return (
     <>
       <Header />
-      <Container style={{ width: '500px' }}>
-        <Link href="/">
-          <h1>로고</h1>
-        </Link>
-        <InputBox>
-          <Form onSubmit={(e) => loginUser(e)}>
-            {/* <Form.Label>Email address</Form.Label> */}
-            <Form.Control
-              type="text"
-              placeholder="아이디"
-              value={inputId}
-              id={'id'}
-              onChange={checkRegex}
-            />
-            <Form.Control
-              type="password"
-              placeholder="비밀번호"
-              value={inputPw}
-              id={'password'}
-              onChange={checkRegex}
-            />
-            <div>{errorMsg}</div>
-            <Button variant="secondary" type="submit">
-              로그인
-            </Button>
-          </Form>
-        </InputBox>
-
-        <LinkTag>
-          <Link href="/user/idinquiry">
-            <a>아이디 찾기</a>
+      <Container>
+        <SectionBox>
+          <Link href="/">
+            <h1>로고</h1>
           </Link>
-          <Link href="/user/pwinquiry">비밀번호 찾기</Link>
-          <Link href="/register">회원가입</Link>
-        </LinkTag>
+          <InnerBox>
+            <InputBox>
+              <Form onSubmit={(e) => loginUser(e)}>
+                {/* <Form.Label>Email address</Form.Label> */}
+                <Form.Control
+                  type="text"
+                  placeholder="아이디"
+                  value={inputId}
+                  id={'id'}
+                  onChange={checkRegex}
+                />
+                <Form.Control
+                  type="password"
+                  placeholder="비밀번호"
+                  value={inputPw}
+                  id={'password'}
+                  onChange={checkRegex}
+                />
+                <div>{errorMsg}</div>
+                <Button variant="secondary" type="submit">
+                  로그인
+                </Button>
+              </Form>
+            </InputBox>
+
+            <LinkTag>
+              <Link href="/user/idsearch">
+                <a>아이디 찾기</a>
+              </Link>
+              <Link href="/user/pwsearch">비밀번호 찾기</Link>
+              <Link href="/register">회원가입</Link>
+            </LinkTag>
+          </InnerBox>
+        </SectionBox>
       </Container>
     </>
   );

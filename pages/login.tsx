@@ -15,7 +15,7 @@ const SectionBox = styled.div`
   justify-content: center;
   align-items: center;
 `;
-const InnerBox = styled.div`
+export const InnerBox = styled.div`
   width: 500px;
 `;
 const LinkTag = styled.div`
@@ -23,7 +23,7 @@ const LinkTag = styled.div`
   justify-content: space-evenly;
   align-items: center;
 `;
-const InputBox = styled.div`
+export const InputBox = styled.div`
   border: 1px solid #c6c6c6;
   border-radius: 6px;
   padding: 20px;

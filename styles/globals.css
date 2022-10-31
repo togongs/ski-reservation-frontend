@@ -31,8 +31,29 @@ footer {
 .form-control:focus{
   border-color: #ced4da
 }
+.lsssa svg {
+  width: 30px;  
+  height: 30px;  
+}
 
-@media (prefers-color-scheme: dark) {
+#toggle-btn {
+  display: none;
+  width: 20px;
+  height: 24px;
+  position: relative;
+  cursor: pointer;
+  text-indent: -9999;
+}
+
+
+
+@media (max-width: 767px) {
+  #toggle-btn {
+    display: block;
+  }
+}
+
+/* @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;
   }
@@ -40,4 +61,4 @@ footer {
     color: white;
     background: black;
   }
-}
+} */

@@ -4,6 +4,7 @@ import { Container, Nav, Navbar } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import { login, logout, IAuth } from '../redux/reducers/authReducer';
 import { AppDispatch } from '../redux/store';
+import { BsPersonFill } from 'react-icons/bs';
 
 interface IGetAuthData {
   auth: {
@@ -46,29 +47,44 @@ const Header = () => {
 
   return (
     // <Navbar collapseOnSelect expand="lg">
-    <Navbar
-      collapseOnSelect
-      expand="lg"
-      style={{ borderBottom: '1px solid lightgray' }}
-    >
+    <Navbar expand="lg" style={{ borderBottom: '1px solid lightgray' }}>
       <Container>
-        <Navbar.Brand href="/">LOGO</Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+        <Navbar.Brand href="/">LOGO</Navbar.Brand>
+        <Navbar.Brand href="/">
+          <div
+            className="lsssa"
+            style={{
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              justifyContent: 'center',
+            }}
+          >
+            <BsPersonFill />
+            <span style={{ fontSize: '12px' }}>로그인/회원가입</span>
+          </div>
+        </Navbar.Brand>
+
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link href="/reservation">강습 예약</Nav.Link>
+            <Nav.Link href="/reservation">브랜드 소개</Nav.Link>
+            <Nav.Link href="/reservation">강습예약</Nav.Link>
+            <Nav.Link href="/reservation">강사진 소개</Nav.Link>
+            <Nav.Link href="/reservation">NFT 수료증 발행 안내</Nav.Link>
+            <Nav.Link href="/reservation">마이페이지(예약조회)</Nav.Link>
+            <Nav.Link href="/reservation">자주 묻는 질문</Nav.Link>
           </Nav>
-          <Nav>
+          {/* <Nav>
             {authenticate ? (
               <>
-                {/* <Nav.Link href="/login">{login_id}님 환영합니다.</Nav.Link> */}
                 <Nav.Link onClick={logOut}>로그아웃</Nav.Link>
                 <Nav.Link href="/user/mypage">마이페이지</Nav.Link>
               </>
             ) : (
               <Nav.Link href="/login">로그인</Nav.Link>
             )}
-          </Nav>
+          </Nav> */}
         </Navbar.Collapse>
       </Container>
     </Navbar>

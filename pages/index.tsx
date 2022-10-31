@@ -9,10 +9,13 @@ import ProductAll from '../components/Product/ProductAll';
 import Modal from '../components/Modal';
 import { useState } from 'react';
 import styled from 'styled-components';
-
-const MainBox = styled.div`
-  padding-top: 40px;
-`;
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
+import asdsa from '../public/assets/img/img1.png';
+import ass1 from '../public/assets/img/img2.png';
+import ass2 from '../public/assets/img/img3.png';
+import Slider from 'react-slick';
+import Main from '../components/Main';
 
 const Home: NextPage = () => {
   const [openModal, setOpenModal] = useState(true);
@@ -20,12 +23,10 @@ const Home: NextPage = () => {
     <>
       <Header />
       <Container>
-        <MainBox>
-          <ProductAll />
-        </MainBox>
-        <div>
+        <Main />
+        {/* <div>
           {openModal && <Modal closeModal={() => setOpenModal(false)} />}
-        </div>
+        </div> */}
       </Container>
       <Footer />
     </>

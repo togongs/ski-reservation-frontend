@@ -1,7 +1,8 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react';
-import { Form, Container, Button } from 'react-bootstrap';
+import { Form, Container, Button, Nav } from 'react-bootstrap';
 import styled from 'styled-components';
 import Link from 'next/link';
+import Timer from '../components/Timer';
 
 const ErrorMsgBox = styled.div`
   height: 50px;
@@ -36,6 +37,7 @@ const Register = () => {
   const [errorMsgId, setErrorMsgId] = useState('');
   const [errorMsgPassword, setErrorMsgPassword] = useState('');
   const [errorMsgPasswordCheck, setErrorMsgPasswordCheck] = useState('');
+  const [isVisible, setIsvisible] = useState(false);
   const inputRef = useRef(null);
 
   const checkRegex = useCallback((e) => {
@@ -105,12 +107,17 @@ const Register = () => {
     inputRef.current.focus();
   }, []);
 
+  const toggleTimer = (e) => {
+    e.preventDefault();
+    setIsvisible(true);
+  };
+
   return (
     <Container style={{ width: '500px' }}>
       <Link href="/">
         <h1>로고</h1>
       </Link>
-      <Form onSubmit={(e) => userRegister(e)}>
+      <Form>
         <Form.Group className="mb-3">
           <Form.Label>이름</Form.Label>
           <Form.Control
@@ -160,19 +167,29 @@ const Register = () => {
           <div style={{ display: 'flex' }}>
             <Form.Control
               type="text"
-              placeholder="전화번호"
+              placeholder="휴대전화"
               onChange={checkRegex}
               id={'phone'}
               value={inputPhone}
               autoComplete="off"
             />
-            <button>인증번호 받기</button>
+            <button onClick={toggleTimer}>인증번호 받기</button>
           </div>
           <Form.Control type="text" placeholder="인증번호" autoComplete="off" />
         </Form.Group>
-        <Button variant="secondary" type="submit">
+        <div>
+          <Link href="/terms">
+            <a>약관 확인</a>
+          </Link>
+        </div>
+        <Button
+          variant="secondary"
+          type="submit"
+          onClick={(e) => userRegister(e)}
+        >
           가입하기
         </Button>
+        {isVisible && <Timer />}
       </Form>
     </Container>
   );

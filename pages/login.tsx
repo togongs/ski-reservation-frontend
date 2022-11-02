@@ -47,7 +47,6 @@ const Login = () => {
   const [inputId, setInputId] = useState<string>(''); // 커스텀 에러메세지
   const [inputPw, setInputPw] = useState<string>(''); // 커스텀 에러메세지
   const [errorMsg, setErrorMsg] = useState('');
-  const [inputCheckAll, setInputCheckAll] = useState(false);
   const [token, setToken] = useState('');
   const dispatch = useDispatch<AppDispatch>();
   const router = useRouter();
@@ -121,10 +120,6 @@ const Login = () => {
     }
   }, []);
 
-  // useEffect(() => {
-  //   inputId && inputPw ? setInputCheckAll(true) : setInputCheckAll(false);
-  // }, [inputId, inputPw]);
-
   return (
     <>
       <LoginHeader />
@@ -135,7 +130,6 @@ const Login = () => {
           </Link>
           <div>
             <Form onSubmit={(e) => loginUser(e)}>
-              {/* <Form.Label>Email address</Form.Label> */}
               <div style={{ width: '300px' }}>
                 <Form.Control
                   type="text"
@@ -173,13 +167,6 @@ const Login = () => {
               <Link href="/terms">아직 회원이 아니신가요?</Link>
               <Link href="/user/search">아이디/비밀번호를 잊으셨나요?</Link>
             </div>
-            {/* <LinkTag>
-              <Link href="/user/idsearch">
-                <a>아이디 찾기</a>
-              </Link>
-              <Link href="/user/pwsearch">비밀번호 찾기</Link>
-              <Link href="/register">회원가입</Link>
-            </LinkTag> */}
           </div>
         </SectionBox>
       </Container>

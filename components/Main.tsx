@@ -6,6 +6,7 @@ import asdsa from '../public/assets/img/img1.png';
 import ass1 from '../public/assets/img/img2.png';
 import ass2 from '../public/assets/img/img3.png';
 import Slider from 'react-slick';
+import { Col, Row } from 'react-bootstrap';
 
 const MainBox = styled.div`
   padding-top: 40px;
@@ -115,25 +116,30 @@ const Main = () => {
         </Slider>
         {/* <ProductAll /> */}
       </MainBox>
-      <BrandBox>
+      <div>
         <h1>브랜드 소개</h1>
         <p>잊지못할 겨울추억</p>
         <p>탑스키강습과 함께하세요!</p>
-        <BrandContentBox>
-          <Image src={ass1} unoptimized={true} />
-          <BrandInnerText>
+        <Row>
+          <Col>
+            <Image src={ass1} unoptimized={true} />
+          </Col>
+          <Col>
             <p>잊지못할 겨울추억</p>
             <p>탑스키강습과 함께하세요!</p>
-          </BrandInnerText>
-        </BrandContentBox>
-        <BrandContentBox>
-          <BrandInnerText>
+          </Col>
+        </Row>
+
+        <Row>
+          <Col>
             <p>잊지못할 겨울추억</p>
             <p>탑스키강습과 함께하세요!</p>
-          </BrandInnerText>
-          <Image src={ass1} unoptimized={true} />
-        </BrandContentBox>
-      </BrandBox>
+          </Col>
+          <Col>
+            <Image src={ass1} unoptimized={true} />
+          </Col>
+        </Row>
+      </div>
 
       <GuideBox>
         <GuideHeader>
@@ -143,24 +149,40 @@ const Main = () => {
         <p>쉽고 편리하게 원하는</p>
         <p>날짜에 강습을 예약하세요!</p>
 
-        <GuideInner>
-          <GuideInnerText>
-            <Image src={ass1} unoptimized={true} />
-            <p>1. 스키장 선택</p>
-          </GuideInnerText>
-          <GuideInnerText>
-            <Image src={ass1} unoptimized={true} />
-            <p>2. 원하는 강습일자/시간 선택</p>
-          </GuideInnerText>
-          <GuideInnerText>
-            <Image src={ass1} unoptimized={true} />
-            <p>3. 강습 종류/인원 선택</p>
-          </GuideInnerText>
-          <GuideInnerText>
-            <Image src={ass1} unoptimized={true} />
-            <p>4. 결제하기</p>
-          </GuideInnerText>
-        </GuideInner>
+        <div>
+          <Row>
+            <Col>
+              <Image src={ass1} unoptimized={true} />
+            </Col>
+            <Col>
+              <p>1. 스키장 선택</p>
+            </Col>
+          </Row>
+          <Row>
+            <Col>
+              <Image src={ass1} unoptimized={true} />
+            </Col>
+            <Col>
+              <p>2. 원하는 강습일자/시간 선택</p>
+            </Col>
+          </Row>
+          <Row>
+            <Col>
+              <Image src={ass1} unoptimized={true} />
+            </Col>
+            <Col>
+              <p>3. 강습 종류/인원 선택</p>
+            </Col>
+          </Row>
+          <Row>
+            <Col>
+              <Image src={ass1} unoptimized={true} />
+            </Col>
+            <Col>
+              <p>4. 결제하기</p>
+            </Col>
+          </Row>
+        </div>
       </GuideBox>
 
       <NFTBox>
@@ -176,49 +198,66 @@ const Main = () => {
         <h1>강사진 소개</h1>
         <p>국내 검증된 강사진 강습 진행</p>
 
-        <TutorSlideBox>
-          <TutorInnerContent>
-            <Slider {...settings}>
-              <Image src={asdsa} alt="" unoptimized={true} />
-              <Image src={ass1} unoptimized={true} />
-              <Image src={ass2} unoptimized={true} />
-            </Slider>
-          </TutorInnerContent>
-          <TutorInnerText>
-            <p>대명리조트 강사진</p>
-            <p>실력검증완료</p>
-          </TutorInnerText>
-        </TutorSlideBox>
-        <TutorSlideBox2>
-          <p>용평</p>
-          <TutorInnerContent>
-            <Slider {...settings}>
-              <Image src={asdsa} unoptimized={true} />
-              <Image src={ass1} unoptimized={true} />
-              <Image src={ass2} unoptimized={true} />
-            </Slider>
-          </TutorInnerContent>
-        </TutorSlideBox2>
-        <TutorSlideBox>
-          <TutorInnerContent>
-            <Slider {...settings}>
-              <Image src={asdsa} unoptimized={true} />
-              <Image src={ass1} unoptimized={true} />
-              <Image src={ass2} unoptimized={true} />
-            </Slider>
-          </TutorInnerContent>
-          <p>곤지암</p>
-        </TutorSlideBox>
-        <TutorSlideBox2>
-          <p>엘리시안</p>
-          <TutorInnerContent>
-            <Slider {...settings}>
-              <Image src={asdsa} unoptimized={true} />
-              <Image src={ass1} unoptimized={true} />
-              <Image src={ass2} unoptimized={true} />
-            </Slider>
-          </TutorInnerContent>
-        </TutorSlideBox2>
+        <TutorInnerContent>
+          <Row>
+            <Col>
+              <Slider {...settings}>
+                <Image src={asdsa} alt="" unoptimized={true} />
+                <Image src={ass1} unoptimized={true} />
+                <Image src={ass2} unoptimized={true} />
+              </Slider>
+            </Col>
+            <Col>
+              <p>대명리조트 강사진</p>
+              <p>실력검증완료</p>
+            </Col>
+          </Row>
+        </TutorInnerContent>
+        <TutorInnerText></TutorInnerText>
+
+        <TutorInnerContent>
+          <Row>
+            <Col>
+              <p>용평</p>
+            </Col>
+            <Col>
+              <Slider {...settings}>
+                <Image src={asdsa} unoptimized={true} />
+                <Image src={ass1} unoptimized={true} />
+                <Image src={ass2} unoptimized={true} />
+              </Slider>
+            </Col>
+          </Row>
+        </TutorInnerContent>
+
+        <TutorInnerContent>
+          <Row>
+            <Col>
+              <Slider {...settings}>
+                <Image src={asdsa} unoptimized={true} />
+                <Image src={ass1} unoptimized={true} />
+                <Image src={ass2} unoptimized={true} />
+              </Slider>
+            </Col>
+            <Col>
+              <p>곤지암</p>
+            </Col>
+          </Row>
+        </TutorInnerContent>
+        <TutorInnerContent>
+          <Row>
+            <Col>
+              <p>엘리시안</p>
+            </Col>
+            <Col>
+              <Slider {...settings}>
+                <Image src={asdsa} unoptimized={true} />
+                <Image src={ass1} unoptimized={true} />
+                <Image src={ass2} unoptimized={true} />
+              </Slider>
+            </Col>
+          </Row>
+        </TutorInnerContent>
       </TutorBox>
     </div>
   );

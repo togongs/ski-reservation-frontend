@@ -2,7 +2,7 @@ import Link from 'next/link';
 import React, { useCallback, useEffect, useState } from 'react';
 import { Container } from 'react-bootstrap';
 import Footer from '../components/Footer';
-import Header from '../components/Header';
+import Header from '../components/Header/Header';
 import { IGetProductData } from '../components/Product/ProductAll';
 
 const ProductReservation = () => {

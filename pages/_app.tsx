@@ -5,6 +5,7 @@ import Script from 'next/script';
 import withRedux from 'next-redux-wrapper';
 import { wrapper } from '../redux/store';
 import App from 'next/app';
+import 'antd/dist/antd.css';
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (

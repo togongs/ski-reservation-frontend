@@ -1,13 +1,15 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { Button, Form, Container, Row, Col, Navbar } from 'react-bootstrap';
+import { Form, Container, Row, Col, Navbar } from 'react-bootstrap';
 import styled from 'styled-components';
 import { useDispatch } from 'react-redux';
 import { login } from '../redux/reducers/authReducer';
-import Header from '../components/Header';
 import axios from 'axios';
 import { AppDispatch } from '../redux/store';
+import Footer from '../components/Footer';
+import LoginHeader from '../components/Header/LoginHeader';
+import ButtonStyle from '../components/Button/ButtonStyle';
 
 const SectionBox = styled.div`
   display: flex;
@@ -33,7 +35,8 @@ export const InputBox = styled.div`
 `;
 
 const ID_REGEX = /^[a-z0-9_-]{5,20}$/;
-const PW_REGEX = /^[a-zA-Z0-9]{8,16}$/;
+const PW_REGEX =
+  /^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,}$/;
 
 const ERROR_MSG = {
   invalidId: '5~20자의 영문 소문자, 숫자와 특수기호(_),(-)만 사용 가능합니다.',
@@ -44,6 +47,7 @@ const Login = () => {
   const [inputId, setInputId] = useState<string>(''); // 커스텀 에러메세지
   const [inputPw, setInputPw] = useState<string>(''); // 커스텀 에러메세지
   const [errorMsg, setErrorMsg] = useState('');
+  const [inputCheckAll, setInputCheckAll] = useState(false);
   const [token, setToken] = useState('');
   const dispatch = useDispatch<AppDispatch>();
   const router = useRouter();
@@ -117,18 +121,22 @@ const Login = () => {
     }
   }, []);
 
+  // useEffect(() => {
+  //   inputId && inputPw ? setInputCheckAll(true) : setInputCheckAll(false);
+  // }, [inputId, inputPw]);
+
   return (
     <>
-      <Header />
+      <LoginHeader />
       <Container>
         <SectionBox>
           <Link href="/">
             <h1>로고</h1>
           </Link>
-          <InnerBox>
-            <InputBox>
-              <Form onSubmit={(e) => loginUser(e)}>
-                {/* <Form.Label>Email address</Form.Label> */}
+          <div>
+            <Form onSubmit={(e) => loginUser(e)}>
+              {/* <Form.Label>Email address</Form.Label> */}
+              <div style={{ width: '300px' }}>
                 <Form.Control
                   type="text"
                   placeholder="아이디"
@@ -144,22 +152,38 @@ const Login = () => {
                   onChange={checkRegex}
                 />
                 <div>{errorMsg}</div>
-                <Button variant="secondary" type="submit">
+                <ButtonStyle
+                  color={`${inputId && inputPw ? '#18A0FB' : '#646464'}`}
+                  type="submit"
+                  style={{ width: '100%' }}
+                >
                   로그인
-                </Button>
-              </Form>
-            </InputBox>
+                </ButtonStyle>
+              </div>
+            </Form>
 
-            <LinkTag>
+            <div
+              style={{
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'center',
+                alignItems: 'center',
+              }}
+            >
+              <Link href="/terms">아직 회원이 아니신가요?</Link>
+              <Link href="/user/search">아이디/비밀번호를 잊으셨나요?</Link>
+            </div>
+            {/* <LinkTag>
               <Link href="/user/idsearch">
                 <a>아이디 찾기</a>
               </Link>
               <Link href="/user/pwsearch">비밀번호 찾기</Link>
               <Link href="/register">회원가입</Link>
-            </LinkTag>
-          </InnerBox>
+            </LinkTag> */}
+          </div>
         </SectionBox>
       </Container>
+      <Footer />
     </>
   );
 };

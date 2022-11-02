@@ -58,19 +58,6 @@ const ProductAll = () => {
               <div>리조트명: {product.resort_name}</div>
               <div>설명: {product.description}</div>
               <div>운영시간: {product.resort_operation_time}</div>
-              <div>운영시간: {product.resort_operation_time}</div>
-              <div>운영시간: {product.resort_operation_time}</div>
-              <div>운영시간: {product.resort_operation_time}</div>
-              <div>운영시간: {product.resort_operation_time}</div>
-              <div>운영시간: {product.resort_operation_time}</div>
-              <div>운영시간: {product.resort_operation_time}</div>
-              <div>운영시간: {product.resort_operation_time}</div>
-              <div>운영시간: {product.resort_operation_time}</div>
-              <div>운영시간: {product.resort_operation_time}</div>
-              <div>운영시간: {product.resort_operation_time}</div>
-              <div>운영시간: {product.resort_operation_time}</div>
-              <div>운영시간: {product.resort_operation_time}</div>
-              <div>운영시간: {product.resort_operation_time}</div>
               <hr></hr>
             </a>
           </Link>

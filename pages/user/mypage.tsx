@@ -1,4 +1,4 @@
-import Header from '../../components/Header';
+import Header from '../../components/Header/Header';
 import React, { useCallback, useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { IAuth } from '../../redux/reducers/authReducer';

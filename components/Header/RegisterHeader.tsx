@@ -5,6 +5,14 @@ import { BsArrowLeft, BsHouseDoor } from 'react-icons/bs';
 import Link from 'next/link';
 import styled from 'styled-components';
 import { Drawer } from 'antd';
+import { UltagDisplay } from './Header';
+
+const RegisterDisplay = styled.div`
+  display: none;
+  @media (max-width: 767px) {
+    display: block;
+  }
+`;
 
 const TermsHeader = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false); // 메뉴의 초기값을 false로 설정
@@ -29,10 +37,10 @@ const TermsHeader = () => {
           <div onClick={() => router.back()}>
             <BsArrowLeft />
           </div>
-          <ul>
+          <UltagDisplay>
             <li></li>
-          </ul>
-          <div>회원가입</div>
+          </UltagDisplay>
+          <RegisterDisplay>회원가입</RegisterDisplay>
           <ul style={{ display: 'flex' }}>
             <li>
               <Link href="/reservation">

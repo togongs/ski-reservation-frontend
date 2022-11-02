@@ -51,14 +51,14 @@ li {
 }
 
 #toggle-btn svg {
-  width: 30px;
-  height: 30px;
+  width: 24px;
+  height: 24px;
 }
 
 #toggle-btn {
   display: none;
-  width: 30px;
-  height: 30px;
+  width: 24px;
+  height: 24px;
   position: relative;
   cursor: pointer;
   text-indent: -9999;
@@ -80,7 +80,6 @@ input[type=number] {
   background-color: none;
   outline: 0;
 }
-
 input[type=number]:focus {
   border: none;
   background-color: none;
@@ -94,6 +93,9 @@ input[type=number]:focus {
     display: block;
   }
   section li {
+    display: none;
+  }
+  .login_txt{
     display: none;
   }
 }

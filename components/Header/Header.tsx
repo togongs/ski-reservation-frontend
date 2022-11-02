@@ -25,8 +25,16 @@ const SignBox = styled.div`
   align-items: center;
   justify-content: center;
   svg {
-    width: 25px;
-    height: 25px;
+    width: 24px;
+    height: 24px;
+  }
+`;
+
+export const UltagDisplay = styled.ul`
+  display: none;
+
+  @media (max-width: 767px) {
+    display: block;
   }
 `;
 
@@ -79,12 +87,10 @@ const Header = () => {
           <div id="toggle-btn">
             <AiOutlineMenu onClick={toggleSide} />
           </div>
-          <ul>
+          <UltagDisplay className="ul_display">
             <li></li>
-          </ul>
-          <div>
-            <Link href="/">LOGO</Link>
-          </div>
+          </UltagDisplay>
+          <Link href="/">LOGO</Link>
           <ul style={{ display: 'flex' }}>
             <li>
               <Link href="/reservation">
@@ -111,7 +117,7 @@ const Header = () => {
             <Link href="/login">
               <SignBox>
                 <BsPersonFill />
-                <span style={{ fontSize: '12px' }}>로그인/회원가입</span>
+                <span className="login_txt">로그인/회원가입</span>
               </SignBox>
             </Link>
           </div>
